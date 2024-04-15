@@ -1,17 +1,18 @@
 '''This module is for command line management'''
-import click , LoggerService
+import click,Service
 
 
 
-@click.command(LoggerService.__doc__)
-
-#command --version 
-@click.version_option(version=LoggerService.service_version,
-                      prog_name=LoggerService.service_name)
-@click.option('--verbose', is_flag=True, help="Print more output.")
-def show_command(verbose):
-     click.echo(LoggerService.__doc__)
+@click.command(Service.__doc__)
+@click.version_option(version=Service.service_version,
+                      prog_name=Service.service_name)
+@click.option('--verbose', is_flag=True, help="Print more output")
+@click.option('--start-service', is_flag=True, help="Starting service")
+def show_command(verbose,start_service):
+     click.echo(Service.__doc__)
      if verbose:
          pass
+     elif start_service:
+         click.echo()
 
     
