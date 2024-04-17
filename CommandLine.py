@@ -1,5 +1,5 @@
 '''This module is for command line management'''
-import click,Service
+import click,Service,sh,os
 
 
 
@@ -13,6 +13,7 @@ def show_command(verbose,start_service):
      if verbose:
          pass
      elif start_service:
-         click.echo()
+         os.system('nameko run Service --config config.yaml')
+         
 
     
